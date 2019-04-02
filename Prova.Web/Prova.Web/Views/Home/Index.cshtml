@@ -1,0 +1,22 @@
+﻿@model Prova.Repository.TheMovieImplementation.Resultado
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+
+    @foreach (var item in Model.Filmes)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card" style="height:100%;">
+                <img class="card-img-top" src='@Html.Raw("https://image.tmdb.org/t/p/w300" + item.BackdropPath)' alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Title</h5>
+                    <p class="card-text">@item.Overview</p>
+
+                </div>
+                <div class="card-footer text-center"><a href='@Url.Action("Detalhes", "Home", new {id = item.Id })' class="btn btn-primary">Informações</a> </div>
+            </div>
+        </div>
+    }
+</div>
